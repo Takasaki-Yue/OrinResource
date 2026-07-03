@@ -1,4 +1,4 @@
-# <div align="center">Pyenv 安裝配置與使用</div>
+# <div align="center">💻 Pyenv 安裝配置與使用</div>
 
 **章節核心:** 破解嵌入式裝置的 `Python` 開發限制
 
@@ -20,7 +20,7 @@
 
 ---
 
-## 安裝 Pyenv 所需依賴庫
+## 🛠️ 安裝 Pyenv 所需依賴庫
 
 ```bash
 sudo apt update
@@ -31,7 +31,7 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 
 ---
 
-## 安裝與配置 Pyenv 工具
+## ⚙️ 安裝與配置 Pyenv 工具
 
 ```bash
 curl https://pyenv.run | bash
@@ -68,4 +68,8 @@ python --version
 
 ---
 
+<div align=center>
+
 本章節是參考 __HackMD__ 的 __YU-SHIH-PENG__ 用戶撰寫的 __[Pyenv安裝設置](https://hackmd.io/@spyua/rydFvA0W3)__ 教學改編而成
+
+</div>
