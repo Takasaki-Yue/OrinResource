@@ -70,4 +70,4 @@ python --version
 
 ---
 
-本章節是參考 __HackMD__ 的 __YU-SHIH-PENG__ 用戶撰寫的 __[Pyenv安裝設置](https://hackmd.io/@spyua/rydFvA0W3)__ 教學
+本章節是參考 __HackMD__ 的 __YU-SHIH-PENG__ 用戶撰寫的 __[Pyenv安裝設置](https://hackmd.io/@spyua/rydFvA0W3)__ 教學改編而成
