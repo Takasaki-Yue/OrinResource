@@ -1,26 +1,44 @@
-<div align="center">
+# <div align="center">Pyenv 安裝配置與使用</div>
 
-</div>
+**章節核心:** 破解嵌入式裝置的 `Python` 開發限制
+
+在 `Jetson Orin Nano` 或 `Raspberry Pi` 等嵌入式裝置上，開發者常常面臨兩大問題:
+
+  * **Python 版本固化:** 系統套件核心與特定 `Python` 版本深度綁定，無法透過 `apt` 更新。
+  * **pip 權限封鎖:** 為防止全域安裝導致套件相依性衝突、引發系統崩潰，新版 Linux 啟用保護機制，拒絕執行 `pip install` 指令。
+
+雖然官方推薦使用 `venv` 虛擬環境，但是無法解決核心問題 「Python 版本太舊」。
+
+**最佳解法:** 引入 `Pyenv` 工具
+
+為了解決上述痛點，本章節將採用 **pyenv** 作為核心解決方案
+
+  * **解鎖版本限制:** 允許開發者在不破壞系統核心的前提下，自行編譯與安裝任何版本 Python，擁有很高的靈活性。
+  * **環境完全隔離:** 完美繞過 `pip` 的外部環境保護限制，自由調度專案所需的套件。
+
+有了 Pyenv，就能夠在嵌入式裝置上擁有像個人電腦一樣自由、純淨的 Python 開發體驗。
 
 ---
 
-## 🛠️ 安裝 Pyenv
+## 安裝 Pyenv 所需依賴庫
 
 ```bash
 sudo apt update
 sudo apt install -y make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev nano && curl https://pyenv.run | bash
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev nano
 ```
 
 ---
 
-## ⚙️ 初始化 Pyenv
+## 安裝與配置 Pyenv 工具
 
 ```bash
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+curl https://pyenv.run | bash
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ---
@@ -42,29 +60,9 @@ pyenv global 3.11.7
 
 ---
 
-## 📝 保留 Pyenv 初始化設定
+## ✅ 驗證結果
 
 ```bash
-sudo nano ~/.bashrc
-
-# 在文件最下方加入指令
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# 按下 Ctrl+X 之後再按下 Y 鍵 再按下 Enter 鍵退出編輯, 使用下面指令重新加載配置
-source ~/.bashrc
-```
-
----
-
-## ✅ 驗證安裝結果
-
-```bash
-# 確認Pyenv是否在運作
-pyenv --version
-
-# 確認Python版本是否有誤
 python --version
 ```
 
